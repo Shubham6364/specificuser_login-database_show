@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Helo</title>
+</head>
+<body>
+
+<h1>Helo</h1>{{request.user.username}}
+
+<form method="post">
+{% csrf_token %}
+<input type="name" name="fname" placeholder="Firstname">
+<input type="name" name="sname" placeholder="Secondname">
+<button type="submit">Submit</button>
+</form>
+
+
+
+
+<a href="{% url 'logout'%}">logout</a>
+<br><br>
+{% for i in  a %}
+
+{{i.fname}}
+{{i.sname}}
+
+
+{% endfor %}
+
+
+</body>
+</html>
