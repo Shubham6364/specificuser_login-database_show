@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<h1>Helo</h1>{{request.user.username}}
+<h1>Helo</h1>{{request.session.username}}
 
 <form method="post">
 {% csrf_token %}
@@ -26,6 +26,8 @@
 
 
 {% endfor %}
+
+
 
 
 </body>

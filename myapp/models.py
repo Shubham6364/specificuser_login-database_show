@@ -1,17 +1,21 @@
 from django.db import models
-from django.contrib.auth.models import User , auth
+
 # Create your models here.
 
 
-class specific(models.Model):
+class Specific(models.Model):
 	fname = models.CharField(max_length=200,null=True)
 	sname = models.CharField(max_length=300,null=True)
-	user = models.ForeignKey(User, on_delete=models.CASCADE,null=True)  # new
+	username = models.ForeignKey(to='Signup', on_delete=models.CASCADE,null=True)  # new
+
+	def __str__(self):
+		return self.username
 
 
 
 
-class signup(models.Model):
+class Signup(models.Model):
+	username = models.CharField(max_length=200,null=True)
 	email = models.EmailField(max_length=200,null=True)
 	password = models.CharField(max_length=200,null=True)
 	repeatpassword =  models.CharField(max_length=200,null=True)
