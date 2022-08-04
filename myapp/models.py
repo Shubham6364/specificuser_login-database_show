@@ -6,7 +6,7 @@ from django.db import models
 class Specific(models.Model):
 	fname = models.CharField(max_length=200,null=True)
 	sname = models.CharField(max_length=300,null=True)
-	username = models.ForeignKey(to='Signup', on_delete=models.CASCADE,null=True)  # new
+	usernanme = models.ForeignKey('Signup', on_delete=models.CASCADE,null=True)  # new
 
 	def __str__(self):
 		return self.username
@@ -16,9 +16,15 @@ class Specific(models.Model):
 
 class Signup(models.Model):
 	username = models.CharField(max_length=200,null=True)
-	email = models.EmailField(max_length=200,null=True)
+	
 	password = models.CharField(max_length=200,null=True)
-	repeatpassword =  models.CharField(max_length=200,null=True)
+	
+
+
+class Admin_Signup(models.Model):
+	uname = models.CharField(max_length=200,null=True)
+	pwd = models.CharField(max_length=200,null=True)
+
 
 
 

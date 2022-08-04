@@ -6,8 +6,7 @@ from django.contrib.auth import authenticate, login
 
 
 def index(request):
-
-	a = Specific.objects.filter(username = request.session['username'])
+	a = Specific.objects.all() 
 
 
 	if request.method=='POST':
@@ -41,22 +40,18 @@ def index(request):
 
 
 
-def signup(request):
-	if request.method == 'POST':
-		username = request.POST.get('username')
-		email = request.POST.get('email')
-		password = request.POST.get('password')
-		repeatpassword = request.POST.get('repeatpassword')
-		
-		
-		
 
 
-		s = Signup(username = username , email=email , password=password , repeatpassword=repeatpassword)
-		s.save()
-		return redirect('login')
 
-	return render(request,'signup.html')
+
+
+
+
+
+
+def onesignup(request):
+	return render(request,'onelogin.html')
+
 
 
 def login(request):
@@ -69,14 +64,13 @@ def login(request):
 		except:
 			pass
 
-	return render(request,'login.html')
-
 
 
 def logout(request):
 	try:
 		del request.session['username']
-		return redirect('login')
+		return redirect('onesignup')
 	except:
-		pass
-	return render(request,'login.html')
+		return render(request,'onelogin.html')
+
+
