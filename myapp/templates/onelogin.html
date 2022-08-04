@@ -9,7 +9,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
 <style>
-	body{
+	{% comment %} body{
 	margin: 0;
 	padding: 0;
 	display: flex;
@@ -98,12 +98,12 @@ button:hover{
 }
 #chk:checked ~ .signup label{
 	transform: scale(.6);
-}
+} {% endcomment %}
 
 </style>
 </head>
 <body>
-	<div class="main">  	
+	{% comment %} <div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
@@ -123,6 +123,21 @@ button:hover{
 					<button>Login</button>
 				</form>
 			</div>
-	</div>
+	</div> {% endcomment %}
+	<h1>Staff</h1>
+	<form method="post" action="{% url 'index' %}">
+	{% csrf_token %}
+	<input type="text" name="username" placeholder="username" required>
+	<input type="password" name="password" placeholder="username" required>
+	<button type="submit"> Submit</button>
+	</form>
+
+	<h1>Admin</h1>
+	<form method="post" action="{% url 'Adminpage' %}">
+		{% csrf_token %}
+		<input type="text" name="uname" placeholder="username" required>
+		<input type="password" name="pwd" placeholder="username" required>
+		<button type="submit"> Submit</button>
+		</form>
 </body>
 </html>

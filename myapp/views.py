@@ -48,7 +48,7 @@ def index(request):
 
 
 
-
+# Staff login full process
 def onesignup(request):
 	return render(request,'onelogin.html')
 
@@ -58,11 +58,11 @@ def login(request):
 	if request.method == 'POST':
 		try:
 			Userdetails = Signup.objects.get (username=request.POST['username'], password=request.POST['password'])
+			print('Userdetails')
 			request.session['username']=Userdetails.username
-			return redirect('index')
 
 		except:
-			pass
+			return redirect('onesignup')
 
 
 
@@ -71,6 +71,34 @@ def logout(request):
 		del request.session['username']
 		return redirect('onesignup')
 	except:
-		return render(request,'onelogin.html')
+		return redirect('onelogin')
+
+	return render(request,'onelogin.html')
 
 
+
+# Admin login full process
+
+def Adminsignup(request):
+	if request.method == 'POST':
+		uname = request.POST.get('uname')
+		pwd = request.POST.get('pwd')
+
+		b = Admin_Signup(uname = uname , pwd = pwd).save()
+	return render(request,'onelogin.html')
+
+
+
+def adminlogin(request):
+	if request.method == 'POST':
+		try:
+			Userdetails = Admin_Signup.objects.get (uname=request.POST['uname'], pwd=request.POST['pwd'])
+			print('Userdetails')
+			request.session['uname']=Userdetails.uname
+
+		except:
+			pass
+
+
+def Adminpage(request):
+	return render(request,'Adminpage.html')

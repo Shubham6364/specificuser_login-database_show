@@ -10,5 +10,7 @@ urlpatterns = [
     path('login',views.login,name='login'),
     path('logout',views.logout,name='logout'),
     path('onesignup',views.onesignup,name='onesignup'),
+    path('Adminsignup',views.Adminsignup,name='Adminsignup'),
+    path('Adminpage',views.Adminpage,name='Adminpage'),
    
 ]
