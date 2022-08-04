@@ -71,7 +71,7 @@ def logout(request):
 		del request.session['username']
 		return redirect('onesignup')
 	except:
-		return redirect('onelogin')
+		return redirect('onesignup')
 
 	return render(request,'onelogin.html')
 
@@ -80,11 +80,6 @@ def logout(request):
 # Admin login full process
 
 def Adminsignup(request):
-	if request.method == 'POST':
-		uname = request.POST.get('uname')
-		pwd = request.POST.get('pwd')
-
-		b = Admin_Signup(uname = uname , pwd = pwd).save()
 	return render(request,'onelogin.html')
 
 
@@ -97,7 +92,23 @@ def adminlogin(request):
 			request.session['uname']=Userdetails.uname
 
 		except:
-			pass
+			return redirect('onesignup')
+
+	return render(request,'onelogin.html')
+
+
+def adminlogout(request):
+	try:
+		del request.session['uname']
+		return redirect('onesignup')
+	except:
+		return redirect('onesignup')
+
+	return render(request,'onelogin.html')
+
+
+
+
 
 
 def Adminpage(request):

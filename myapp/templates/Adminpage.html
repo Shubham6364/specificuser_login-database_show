@@ -4,7 +4,11 @@
 	<title></title>
 </head>
 <body>
+
+	
 <h1>Admin page </h1>
-{{ request.session.uname }}
+{{request.session.uname}}
+<a href="{% url 'adminlogout'%}">logout</a>
+
 </body>
 </html>
