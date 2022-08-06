@@ -20,7 +20,7 @@ class Signup(models.Model):
 	
 
 
-class AdminSignup(models.Model):
+class Adminsignup(models.Model):
 	uname= models.CharField(max_length=200,null=True)
 	pwd = models.CharField(max_length=200,null=True)
 
