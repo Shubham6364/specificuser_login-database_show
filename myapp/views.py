@@ -47,8 +47,8 @@ def index(request):
 
 
 # Staff login full process
-def onesignup(request):
-	return render(request,'onelogin.html')
+# def onesignup(request):
+# 	return render(request,'onelogin.html')
 
 
 
@@ -61,14 +61,16 @@ def login(request):
 		except:
 			return redirect('onesignup')
 
+	return render(request,'onelogin.html')
+
 
 
 def logout(request):
 		try:
 			del request.session['username']
-			return redirect('onesignup')
+			return redirect('login')
 		except:
-			return redirect('onesignup')
+			return redirect('login')
 
 	
 
@@ -76,8 +78,8 @@ def logout(request):
 
 # Admin login full process
 
-def Adminsignup(request):
-	return render(request,'Adminsignup.html')
+# def Adminsignup(request):
+# 	return render(request,'Adminsignup.html')
 
 
 
@@ -89,14 +91,14 @@ def adminlogin(request):
 		except:
 			return redirect('Adminsignup')
 
-
+	return render(request,'Adminsignup.html')
 
 def adminlogout(request):
 	try:
 		del request.session['uname']
-		return redirect('Adminsignup')
+		return redirect('adminlogin')
 	except:
-		return redirect('Adminsignup')
+		return redirect('adminlogin')
 
 
 
