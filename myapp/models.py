@@ -16,13 +16,12 @@ class Specific(models.Model):
 
 class Signup(models.Model):
 	username = models.CharField(max_length=200,null=True)
-	
 	password = models.CharField(max_length=200,null=True)
 	
 
 
-class Admin_Signup(models.Model):
-	uname = models.CharField(max_length=200,null=True)
+class AdminSignup(models.Model):
+	uname= models.CharField(max_length=200,null=True)
 	pwd = models.CharField(max_length=200,null=True)
 
 

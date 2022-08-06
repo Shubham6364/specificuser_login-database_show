@@ -1,7 +1,6 @@
+
 from django.shortcuts import render,redirect
 from . models import *
-from django.contrib.auth.models import User , auth
-from django.contrib.auth import authenticate, login
 # Create your views here.
 
 
@@ -12,8 +11,7 @@ def index(request):
 	if request.method=='POST':
 		fname = request.POST.get('fname')
 		sname = request.POST.get('sname')
-
-
+		
 		a = Specific(fname=fname , sname=sname)
 
 		if request.method == 'POST':
@@ -57,8 +55,7 @@ def onesignup(request):
 def login(request):
 	if request.method == 'POST':
 		try:
-			Userdetails = Signup.objects.get (username=request.POST['username'], password=request.POST['password'])
-			print('Userdetails')
+			Userdetails = Signup.objects.get(username=request.POST['username'], password=request.POST['password'])
 			request.session['username']=Userdetails.username
 
 		except:
@@ -67,44 +64,40 @@ def login(request):
 
 
 def logout(request):
-	try:
-		del request.session['username']
-		return redirect('onesignup')
-	except:
-		return redirect('onesignup')
+		try:
+			del request.session['username']
+			return redirect('onesignup')
+		except:
+			return redirect('onesignup')
 
-	return render(request,'onelogin.html')
+	
 
 
 
 # Admin login full process
 
 def Adminsignup(request):
-	return render(request,'onelogin.html')
+	return render(request,'Adminsignup.html')
 
 
 
 def adminlogin(request):
 	if request.method == 'POST':
 		try:
-			Userdetails = Admin_Signup.objects.get (uname=request.POST['uname'], pwd=request.POST['pwd'])
-			print('Userdetails')
-			request.session['uname']=Userdetails.uname
-
+			a = AdminSignup.objects.get(uname = request.POST['uname'] , pwd = request.POST['pwd'])
+			request.session['uname'] =  a.uname
 		except:
-			return redirect('onesignup')
+			return redirect('Adminsignup')
 
-	return render(request,'onelogin.html')
 
 
 def adminlogout(request):
 	try:
 		del request.session['uname']
-		return redirect('onesignup')
+		return redirect('Adminsignup')
 	except:
-		return redirect('onesignup')
+		return redirect('Adminsignup')
 
-	return render(request,'onelogin.html')
 
 
 
@@ -113,3 +106,5 @@ def adminlogout(request):
 
 def Adminpage(request):
 	return render(request,'Adminpage.html')
+
+
