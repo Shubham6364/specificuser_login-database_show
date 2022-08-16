@@ -103,7 +103,7 @@ button:hover{
 </style>
 </head>
 <body>
-	{% comment %} <div class="main">  	
+	<!-- {% comment %} <div class="main">  	
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
@@ -123,21 +123,21 @@ button:hover{
 					<button>Login</button>
 				</form>
 			</div>
-	</div> {% endcomment %}
+	</div> {% endcomment %} -->
 	<h1>Staff</h1>
-	<form method="post" action="{% url 'index' %}">
+	<form method="post" action="{% url 'index' %} ">
 	{% csrf_token %}
 	<input type="text" name="username" placeholder="username" required>
 	<input type="password" name="password" placeholder="username" required>
 	<button type="submit"> Submit</button>
 	</form>
 
-	{% comment %} <h1>Admin</h1>
+	<!-- {% comment %} <h1>Admin</h1>
 	<form method="post" action="{% url 'Adminpage' %}">
 		{% csrf_token %}
-		<input type="text" name="uname" placeholder="username" required>
-		<input type="password" name="pwd" placeholder="username" required>
+		<input type="text" name="username" placeholder="username" required>
+		<input type="password" name="password" placeholder="username" required>
 		<button type="submit"> Submit</button>
-		</form> {% endcomment %}
+		</form> {% endcomment %} -->
 </body>
 </html>

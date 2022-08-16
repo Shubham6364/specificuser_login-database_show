@@ -1,5 +1,4 @@
 from django.db import models
-
 # Create your models here.
 
 
@@ -15,14 +14,16 @@ class Specific(models.Model):
 
 
 class Signup(models.Model):
+	
 	username = models.CharField(max_length=200,null=True)
 	password = models.CharField(max_length=200,null=True)
 	
+	
 
 
-class Adminsignup(models.Model):
-	uname= models.CharField(max_length=200,null=True)
-	pwd = models.CharField(max_length=200,null=True)
+class Owner(models.Model):
+	username= models.CharField(max_length=200,null=True)
+	password = models.CharField(max_length=200,null=True)
 
 
 

@@ -108,8 +108,8 @@ button:hover{
 	<h1>Admin</h1>
 	<form method="POST" action="{% url 'Adminpage' %}">
 		{% csrf_token %}
-		<input type="text" name="uname" placeholder="username" required>
-		<input type="password" name="pwd" placeholder="username" required>
+		<input type="text" name="username" placeholder="username" required>
+		<input type="password" name="password" placeholder="username" required>
 		<button type="submit"> Submit</button>
 		</form>
 </body>

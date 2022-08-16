@@ -15,6 +15,7 @@ urlpatterns = [
     path('adminlogout',views.adminlogout,name='adminlogout'),
     # path('Adminsignup',views.Adminsignup,name='Adminsignup'),
     path('adminlogin',views.adminlogin,name='adminlogin'),
+    path('pooja',views.pooja,name='pooja'),
 
    
 ]
