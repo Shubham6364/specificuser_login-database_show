@@ -1,1 +1,1 @@
-web: gunicorn specificusr.wsgi
+web: gunicorn specificusr.wsgi --log-file
